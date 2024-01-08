@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Box, Grid, Toolbar,} from "@mui/material";
+import {AppBar, Box, Grid, IconButton, Toolbar,} from "@mui/material";
 import {DarkMode} from "@mui/icons-material";
 import LogoutIcon from '@mui/icons-material/Logout';
 
@@ -29,9 +29,10 @@ const Header = () => {
                 </Box>
               </Grid>
               <Grid item>
-              {route.pathname === "/home" &&
-                <LogoutIcon onClick={handleLogout}>
-                </LogoutIcon>}
+                {route.pathname === "/home" &&
+                <IconButton className="logout-button">
+                  <LogoutIcon onClick={handleLogout}/>
+                </IconButton>}
               </Grid>
             </Grid>
           </Toolbar>
