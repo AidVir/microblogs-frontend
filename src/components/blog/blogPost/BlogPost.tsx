@@ -2,8 +2,19 @@ import React from "react";
 import {Avatar, Card, CardContent, Typography} from "@mui/material";
 import "./BlogPost.scss";
 import Blog from "../../../types/Blog";
+import DeleteIcon from '@mui/icons-material/Delete';
+import BlogService from "../../../services/BlogService";
 
-const BlogPost = (props: {blog: Blog}) => {
+const BlogPost = (props: {blog: Blog, refreshBlogs: () => void}) => {
+  const handleDelete = () => {
+    BlogService.remove(props.blog.id)
+    .then((response) => {
+      console.log(response.data);
+      props.refreshBlogs();
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
   return (
       <Card className="blog-post">
@@ -11,6 +22,7 @@ const BlogPost = (props: {blog: Blog}) => {
           <div className="user-info">
             <Avatar className="avatar">{props.blog.username.charAt(0).toUpperCase()}</Avatar>
             <Typography variant="h5">{props.blog.username}</Typography>
+            <DeleteIcon className="delete-button" onClick={handleDelete} />
           </div>
           <Typography variant="h6" className="content">
             {props.blog.content}

@@ -37,7 +37,10 @@ const BlogList = () => {
         {blogs.length == 0 ? <div> No blogs to display </div> :
             blogs.slice().reverse().map((blog) => (
                 <div key={blog.id}>
-                  <BlogPost blog={blog}/>
+                  <BlogPost
+                      blog={blog}
+                      refreshBlogs={refreshBlogs}
+                  />
                 </div>
             ))}
       </div>
