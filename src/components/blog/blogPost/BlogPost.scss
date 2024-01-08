@@ -1,0 +1,30 @@
+.blog-post {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  background-color: #999;
+
+  .blog-card {
+    background-color: #E4E6C3;
+  }
+
+  .user-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5px;
+
+    .avatar {
+      margin-right: 10px;
+      color: #222725;
+      background-color: #899878;
+    }
+  }
+
+  .content {
+    white-space: pre-wrap; // Preserve line breaks in the content
+  }
+
+  .date {
+    margin-top: 8px;
+    color: #222725;
+  }
+}
